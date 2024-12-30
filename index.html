@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year, Teacher!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(circle, #1c1c3c, #4e4376);
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #ffdfba;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            color: #d4f0ff;
+        }
+
+        .thank-you {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            font-weight: bold;
+            background: linear-gradient(to right, #ff6e7f, #bfe9ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: white;
+            border-radius: 50%;
+            animation: firework-animation 1.5s ease-out infinite;
+        }
+
+        @keyframes firework-animation {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(3);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+
+        .firework:nth-child(odd) {
+            background-color: #ff6e7f;
+        }
+
+        .firework:nth-child(even) {
+            background-color: #bfe9ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="fireworks" id="fireworks"></div>
+    <div class="container">
+        <h1>Happy New Year 2025!</h1>
+        <p>Dear Teacher,</p>
+        <p>
+            As we welcome this new year, I want to take a moment to express my heartfelt gratitude. 
+            Thank you for always guiding me, supporting me in every challenge, and being a source of inspiration.
+        </p>
+        <p class="thank-you">Your efforts mean the world to me, and I feel truly blessed to have you as my teacher.</p>
+        <p>Wishing you a year filled with happiness, health, and success!</p>
+        <p>With sincere thanks,<br>Your Student</p>
+    </div>
+
+    <script>
+        const fireworksContainer = document.getElementById('fireworks');
+
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            firework.style.left = Math.random() * 100 + 'vw';
+            firework.style.top = Math.random() * 100 + 'vh';
+            fireworksContainer.appendChild(firework);
+
+            setTimeout(() => {
+                firework.remove();
+            }, 1500);
+        }
+
+        setInterval(createFirework, 300);
+    </script>
+</body>
+</html>
